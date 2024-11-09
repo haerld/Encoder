@@ -5,8 +5,8 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 const DigitalEncoder = () => {
   const [binaryInput, setBinaryInput] = useState('10110');
-  const [lastLevel, setLastLevel] = useState(1);
-  const [lastAMIPolarity, setLastAMIPolarity] = useState(1);
+  const lastLevel = 1
+  const lastAMIPolarity = 1;
 
   // Convert binary string to array of bits
   const getBits = () => binaryInput.split('').map(bit => parseInt(bit));
