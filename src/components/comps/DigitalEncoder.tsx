@@ -15,7 +15,7 @@ const DigitalEncoder = () => {
   const getNRZL = () => {
     return getBits().flatMap(bit => [
       { time: 't', value: bit ? 1 : -1 },
-      { time: 't+0.5', value: bit ? 1 : -1 }
+      { time: 't+1.0', value: bit ? 1 : -1 }
     ]);
   };
 
@@ -26,7 +26,7 @@ const DigitalEncoder = () => {
       if (bit === 1) level *= -1;
       return [
         { time: 't', value: level },
-        { time: 't+0.5', value: level }
+        { time: 't+1.0', value: level }
       ];
     });
   };
@@ -38,7 +38,7 @@ const DigitalEncoder = () => {
       const value = bit ? (polarity *= -1) : 0;
       return [
         { time: 't', value: value },
-        { time: 't+0.5', value: value }
+        { time: 't+1.0', value: value }
       ];
     });
   };
@@ -50,7 +50,7 @@ const DigitalEncoder = () => {
       const value = bit ? 0 : (polarity *= -1);
       return [
         { time: 't', value: value },
-        { time: 't+0.5', value: value }
+        { time: 't+1.0', value: value }
       ];
     });
   };
@@ -59,7 +59,7 @@ const DigitalEncoder = () => {
   const getManchester = () => {
     return getBits().flatMap(bit => [
       { time: 't', value: bit ? 1 : -1 },
-      { time: 't+0.5', value: bit ? -1 : 1 }
+      { time: 't+1.0', value: bit ? -1 : 1 }
     ]);
   };
 
@@ -69,7 +69,7 @@ const DigitalEncoder = () => {
     return getBits().flatMap(bit => {
       const result = [
         { time: 't', value: level },
-        { time: 't+0.5', value: -level }
+        { time: 't+1.0', value: -level }
       ];
       if (bit === 0) level *= -1;
       return result;
